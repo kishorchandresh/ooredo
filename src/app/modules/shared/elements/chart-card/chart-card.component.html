@@ -1,0 +1,18 @@
+<div class="container  ">
+    <div class="row">
+    </div>
+    <div class="row">
+        <div class="myChartData" *ngIf="graphType === 'distance'">
+            <canvas id="distance"></canvas>
+        </div>
+        <div class="myChartData" *ngIf="graphType === 'alarms'">
+            <canvas id="alarms"></canvas>
+        </div>
+        <div class="myChartData" *ngIf="graphType === 'fuels'">
+            <canvas id="fuels"></canvas>
+        </div>
+        <div class="myChartData" *ngIf="graphType === 'trips'">
+            <canvas id="trips"></canvas>
+        </div>
+    </div>
+</div>

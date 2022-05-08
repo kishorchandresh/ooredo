@@ -1,0 +1,9 @@
+.myChartData {
+    width: 400px;
+    height: 350px;
+}
+
+.myChartData>canvas {
+    width: 400px !important;
+    height: 300px !important;
+}

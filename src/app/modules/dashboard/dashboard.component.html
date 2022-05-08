@@ -1,0 +1,85 @@
+<div class="container pt-2 ">
+    <div class="row">
+        <div class="tap-cntr">
+            <div class="p-1 bg-tap shadow">
+                <ul class="nav nav-pills nav-fill" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link " [ngClass]="{active: activeLink=='Dashboard' ? true : false} " href="javascript:void(0)" (click)="changeActiveLink('Dashboard')">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{active: activeLink=='Fleet' ? true : false} " href="javascript:void(0)" (click)="changeActiveLink('Fleet')">Fleet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{active: activeLink=='Trips' ? true : false} " href="javascript:void(0)" (click)="changeActiveLink('Trips')">Trips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{active: activeLink=='Alarms' ? true : false} " href="javascript:void(0)" (click)="changeActiveLink('Alarms')">Alarms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{active: activeLink=='Analytics' ? true : false} " href="javascript:void(0)" routerLink="/analytics">Analytics</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--Monitor start  -->
+    <div class="row ">
+        <div class="container mt-2 mb-2 tab-content">
+            <div class="tab-pane active mb-2 " id="Dashboard">
+                <h5>Monitor</h5>
+                <div class="row">
+                    <div class="col-md " *ngFor="let data of monitorCardData">
+                        <app-monitor-card [cardIcon]="data.icon" [cardData]="data.name"></app-monitor-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Monitor end  -->
+
+
+    <!--Map Start -->
+    <div class="row mt-2">
+        <div class="d-flex justify-content-between">
+            <h5 class="mt-2">Map</h5>
+            <div class="d-flex justify-content-around map-cont ">
+                <div class="card-map">
+                    <form class="d-flex">
+                        <input class="form-control me-2 shadow" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btnn" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="card-map">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary shadow dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="dot"><i class="fa fa-dot-circle-o" aria-hidden="true"></i></span> Connected
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Disconnect</a></li>
+                            <li><a class="dropdown-item " href="#">Connect</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-map">
+                    <button class="btn btn-secondary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filtter &nbsp; &nbsp; <i class="fa fa-filter" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="card-map mt-1 left-right">
+                    <i class="fa fa-chevron-left"></i>
+                    <i class="fa fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class=" mt-5">
+            <app-map [latitude]="lat" [longitude]="long"></app-map>
+        </div>
+    </div>
+
+    <!--Map end  -->
+
+</div>
