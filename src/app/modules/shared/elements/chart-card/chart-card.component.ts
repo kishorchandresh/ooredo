@@ -7,7 +7,7 @@ Chart.register(...registerables);
   styleUrls: ['./chart-card.component.css']
 })
 export class ChartCardComponent implements OnInit, AfterViewInit {
-  @Input() graphData: any = [];
+  @Input() graphData: any;
   @Input() graphType: any;
   constructor() { }
 
@@ -19,10 +19,8 @@ export class ChartCardComponent implements OnInit, AfterViewInit {
     if (this.graphType == 'trips') { this.tripsChart(); }
   }
 
-  // chart of distanceChart
+  // createDistance chart
   distanceChart(): void {
-    let canvesName = "canvas-" + this.graphType;
-
     let lineDatas: any = [];
     let dataLabels: any = [];
     this.graphData.filter((value: any, index: any, arr: any) => {
@@ -64,9 +62,9 @@ export class ChartCardComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
-  // chart of alarms
+  // create alarms
   alarmsChart(): void {
+
     let majorData:any =[];
     let criticalData:any =[];
     let minerData:any =[];
@@ -78,8 +76,6 @@ export class ChartCardComponent implements OnInit, AfterViewInit {
       dataLabels.push(value.date);
       return;
     })
-
-    // create Chart 
     const myChart = new Chart("alarms", {
       type: 'bar',
       data: {

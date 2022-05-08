@@ -24,20 +24,20 @@
     <div class="row mt-4 mb-4">
         <div class="col-md">
             <h3>Distance</h3>
-            <app-chart-card [graphData]="graphData.distance" [graphType]="'distance'"></app-chart-card>
+            <app-chart-card [graphData]="graphData.distance" [graphType]="'distance'" *ngIf="dataloaded"></app-chart-card>
         </div>
         <div class="col-md">
             <h3>Alarms</h3>
-            <app-chart-card [graphData]="graphData.alarms" [graphType]="'alarms'"></app-chart-card>
+            <app-chart-card [graphData]="graphData.alarms" [graphType]="'alarms'" *ngIf="dataloaded"></app-chart-card>
         </div>
 
         <div class="col-md">
             <h3>Fuels</h3>
-            <app-chart-card [graphData]="graphData.fuels" [graphType]="'fuels'"></app-chart-card>
+            <app-chart-card [graphData]="graphData.fuels" [graphType]="'fuels'" *ngIf="dataloaded"></app-chart-card>
         </div>
         <div class="col-md">
             <h3>Trips</h3>
-            <app-chart-card [graphData]="graphData.trips" [graphType]="'trips'"></app-chart-card>
+            <app-chart-card [graphData]="graphData.trips" [graphType]="'trips'" *ngIf="dataloaded"></app-chart-card>
         </div>
     </div>
 
